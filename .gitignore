@@ -1,0 +1,4 @@
+s3_backend/terraform.tfstate*
+s3_backend/.terraform
+stage/terraform.tfstate*
+stage/.terraform/*
