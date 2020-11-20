@@ -52,7 +52,7 @@ module "instances" {
   source        = "git@github.com:dbgoytia/instances-tf.git"
   instance-type = "t2.micro"
   ssh-key-arn = "arn:aws:secretsmanager:us-east-1:779136181681:secret:dgoytia-ssh-key-2-6JJZH2"
-  #key_pair_name = "dgoytia"
+  key_pair_name = "dgoytia"
   #key_pair_path = "~/.ssh/id_rsa.pub" ## I suspect this ain't gonna work.
   vpc_id        = module.network.VPC_ID
   subnet_id     = module.network.SUBNET_ID
