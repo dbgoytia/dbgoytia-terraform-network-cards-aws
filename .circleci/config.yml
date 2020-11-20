@@ -26,12 +26,7 @@ jobs:
       - run:
           name: terraform
           command: |
-            terraform destroy -auto-approve
-      - run:
-          name: Run on fail status
-          command: |
-              echo "I am result of above failed job"
-          when: on_fail
+            terraform apply -auto-approve tfapply
       - persist_to_workspace:
           root: .
           paths:
