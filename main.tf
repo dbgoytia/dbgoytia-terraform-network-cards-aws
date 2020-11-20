@@ -43,12 +43,6 @@ module "network" {
   cidr_block_subnet = "10.0.1.0/24"
 }
 
-module "network" {
-  source            = "git@github.com:dbgoytia/networks-tf.git"
-  vpc_cidr_block    = "10.0.0.0/16"
-  cidr_block_subnet = "10.0.1.0/24"
-}
-
 module "instances" {
   source        = "git@github.com:dbgoytia/instances-tf.git"
   instance-type = "t2.micro"
