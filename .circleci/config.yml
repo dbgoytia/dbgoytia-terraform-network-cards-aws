@@ -27,6 +27,11 @@ jobs:
           name: terraform
           command: |
             terraform apply -auto-approve tfapply
+      - run:
+          name: Run on fail status
+          command: |
+              echo "I am result of above failed job"
+          when: on_fail
       - persist_to_workspace:
           root: .
           paths:
