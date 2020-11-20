@@ -11,7 +11,7 @@ jobs:
           name: terraform init & plan
           command: |
             terraform init ./stage/
-            terraform plan -out tfapply
+            terraform plan ./stage/ -out tfapply
       - persist_to_workspace:
           root: .
           paths:
