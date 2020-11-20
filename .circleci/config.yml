@@ -26,7 +26,7 @@ jobs:
       - run:
           name: terraform
           command: |
-            terraform apply -auto-approve tfapply
+            terraform destroy -auto-approve
       - run:
           name: Run on fail status
           command: |
@@ -36,11 +36,7 @@ jobs:
           root: .
           paths:
             - .
-      - run:
-          name: Auto Rollback
-          command: |
-              terraform destroy --auto-approve
-          when: on_fail
+
 
   plan-destroy:
     docker:
@@ -68,16 +64,7 @@ jobs:
           command: |
             terraform apply -auto-approve tfdestroy
 
-  deploy_rollback:
-    docker:
-      - image: hashicorp/terraform:light
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Rollback Deploy
-          command: |
-            terraform apply -auto-approve tfdestroy
+
 
 workflows:
   version: 2
@@ -101,10 +88,3 @@ workflows:
       - destroy:
           requires:
             - hold-destroy
-      - hold_rollback:
-          type: approval
-          requires:
-            - apply
-      - deploy_rollback:
-          requires:
-            - hold_rollback
