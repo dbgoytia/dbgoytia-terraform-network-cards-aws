@@ -43,6 +43,11 @@ module "network" {
   cidr_block_subnet = "10.0.1.0/24"
 }
 
+
+# Next challenge here is to store the ssh-key pair in AWS Secrets manager,
+# expose this through an API and consume it through Lambda.
+# Then figure out a way to retrieve this using datastores...
+
 module "instances" {
   source        = "git@github.com:dbgoytia/instances-tf.git"
   instance-type = "t2.micro"
