@@ -10,8 +10,7 @@ jobs:
       - run:
           name: terraform init & plan
           command: |
-            cat ./stage/main.tf
-            terraform init -input=false ./stage/main.tf
+            terraform init -input=false ./stage/
             terraform plan -out tfapply
       - persist_to_workspace:
           root: .
