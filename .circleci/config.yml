@@ -10,6 +10,7 @@ jobs:
       - run:
           name: terraform init & plan
           command: |
+            ls -ltr
             terraform init -input=false
             terraform plan -out tfapply
       - persist_to_workspace:
