@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Auto Rollback
           command: |
-              terraform destroy
+              terraform destroy --auto-approve
           when: on_fail
 
   plan-destroy:
