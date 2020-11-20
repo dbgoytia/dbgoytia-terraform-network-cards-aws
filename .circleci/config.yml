@@ -10,9 +10,8 @@ jobs:
       - run:
           name: terraform init & plan
           command: |
-            terraform init ./stage/
-            terraform workspace list
-            terraform plan ./stage/ -out tfapply
+            terraform init
+            terraform plan -out tfapply
       - persist_to_workspace:
           root: .
           paths:
